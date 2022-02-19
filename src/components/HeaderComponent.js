@@ -59,7 +59,7 @@ class Header extends Component {
                                 <NavItem>
                                     <NavLink
                                         className="nav-link"
-                                        to="/getInvolved"
+                                        to="/getinvolved"
                                     >
                                         Get Involved
                                     </NavLink>

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Header from "./HeaderComponent";
+import Footer from "./FooterComponent";
 import Home from "./HomeComponent";
 import Adopt from "./AdoptComponent";
 import GetInvolved from "./GetInvolvedComponent";
@@ -23,7 +24,7 @@ class Main extends Component {
                     <Route exact path="/adopt" render={() => <Adopt />} />
                     <Route
                         exact
-                        path="/getInvolved"
+                        path="/getinvolved"
                         render={() => <GetInvolved />}
                     />
                     <Route
@@ -44,6 +45,7 @@ class Main extends Component {
                     />
                     <Redirect to="/home" />
                 </Switch>
+                <Footer />
             </React.Fragment>
         );
     }
