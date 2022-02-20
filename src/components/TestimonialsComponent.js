@@ -54,7 +54,7 @@ function Testimonials(props) {
     return (
         <div className="container">
             <div className="row mt-2">
-                <div className="col mb-5">
+                <div className="col mt-4 mb-5">
                     <h1 className="text-center">Our Happy Tails</h1>
                 </div>
                 <Media list>{happyTails}</Media>

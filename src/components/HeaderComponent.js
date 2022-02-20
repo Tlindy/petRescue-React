@@ -11,7 +11,7 @@ import {
     DropdownItem,
     Jumbotron,
 } from "reactstrap";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 
 class Header extends Component {
     constructor(props) {
@@ -37,11 +37,13 @@ class Header extends Component {
                     <div className="container">
                         <div className="row">
                             <div className="col-4 col-sm-3 col-md-2 align-self-center">
-                                <img
-                                    src="/assets/images/furBabyLogo.png"
-                                    alt="Find A Fur Baby logo"
-                                    className="img-fluid"
-                                />
+                                <Link to="/home">
+                                    <img
+                                        src="/assets/images/furBabyLogo.png"
+                                        alt="Find A Fur Baby logo"
+                                        className="img-fluid"
+                                    />
+                                </Link>
                             </div>
                             <div className="col align-self-center">
                                 <h1>Find A Fur Baby</h1>
