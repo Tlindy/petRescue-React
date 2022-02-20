@@ -12,6 +12,7 @@ import AdoptionForm from "./AdoptionFormComponent";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { DOGS } from "../shared/dogsAdopt";
 import { CATS } from "../shared/catsAdopt";
+import { TESTIMONIALS } from "../shared/testimonials";
 
 class Main extends Component {
     constructor(props) {
@@ -19,6 +20,7 @@ class Main extends Component {
         this.state = {
             dogs: DOGS,
             cats: CATS,
+            testimonials: TESTIMONIALS,
         };
     }
 
@@ -50,7 +52,11 @@ class Main extends Component {
                     <Route
                         exact
                         path="/testimonials"
-                        render={() => <Testimonials />}
+                        render={() => (
+                            <Testimonials
+                                testimonials={this.state.testimonials}
+                            />
+                        )}
                     />
                     <Route
                         exact
