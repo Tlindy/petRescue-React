@@ -5,6 +5,10 @@ import {
     NavbarToggler,
     Collapse,
     NavItem,
+    Dropdown,
+    DropdownToggle,
+    DropdownMenu,
+    DropdownItem,
     Jumbotron,
 } from "reactstrap";
 import { NavLink } from "react-router-dom";
@@ -14,11 +18,16 @@ class Header extends Component {
         super(props);
         this.state = {
             isNavOpen: false,
+            dropdownOpen: false,
         };
     }
 
     toggleNav = () => {
         this.setState({ isNavOpen: !this.state.isNavOpen });
+    };
+
+    toggleDropdown = () => {
+        this.setState({ dropdownOpen: !this.state.dropdownOpen });
     };
 
     render() {
@@ -51,11 +60,29 @@ class Header extends Component {
                                         Home
                                     </NavLink>
                                 </NavItem>
-                                <NavItem>
-                                    <NavLink className="nav-link" to="/adopt">
+                                <Dropdown
+                                    nav
+                                    isOpen={this.state.dropdownOpen}
+                                    toggle={this.toggleDropdown}
+                                >
+                                    <DropdownToggle caret nav>
                                         Adopt
-                                    </NavLink>
-                                </NavItem>
+                                    </DropdownToggle>
+                                    <DropdownMenu>
+                                        <NavLink
+                                            className="nav-link"
+                                            to="/dogs"
+                                        >
+                                            <DropdownItem>Dogs</DropdownItem>
+                                        </NavLink>
+                                        <NavLink
+                                            className="nav-link"
+                                            to="/cats"
+                                        >
+                                            <DropdownItem>Cats</DropdownItem>
+                                        </NavLink>
+                                    </DropdownMenu>
+                                </Dropdown>
                                 <NavItem>
                                     <NavLink
                                         className="nav-link"
