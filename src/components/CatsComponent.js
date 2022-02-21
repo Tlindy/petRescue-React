@@ -1,5 +1,13 @@
 import React from "react";
-import { Card, CardImg, CardBody, CardTitle, CardText } from "reactstrap";
+import {
+    Card,
+    CardImg,
+    CardBody,
+    CardTitle,
+    CardText,
+    Button,
+} from "reactstrap";
+import { Link } from "react-router-dom";
 
 function RenderCatAdoptCard({ cat }) {
     return (
@@ -8,6 +16,9 @@ function RenderCatAdoptCard({ cat }) {
             <CardBody>
                 <CardTitle tag="h5">Name: {cat.name}</CardTitle>
                 <CardText>{cat.info}</CardText>
+                <Link to="/adoptionform">
+                    <Button color="primary">Adopt</Button>
+                </Link>
             </CardBody>
         </Card>
     );

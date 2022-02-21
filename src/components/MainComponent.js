@@ -6,7 +6,6 @@ import Dogs from "./DogsComponent";
 import Cats from "./CatsComponent";
 import GetInvolved from "./GetInvolvedComponent";
 import Testimonials from "./TestimonialsComponent";
-import Resources from "./ResourcesComponent";
 import About from "./AboutComponent";
 import AdoptionForm from "./AdoptionFormComponent";
 import { Switch, Route, Redirect } from "react-router-dom";
@@ -44,11 +43,7 @@ class Main extends Component {
                         path="/cats"
                         render={() => <Cats cats={this.state.cats} />}
                     />
-                    <Route
-                        exact
-                        path="/getinvolved"
-                        render={() => <GetInvolved />}
-                    />
+                    <Route exact path="/getinvolved" component={GetInvolved} />
                     <Route
                         exact
                         path="/testimonials"
@@ -58,16 +53,11 @@ class Main extends Component {
                             />
                         )}
                     />
-                    <Route
-                        exact
-                        path="/resources"
-                        render={() => <Resources />}
-                    />
                     <Route exact path="/about" render={() => <About />} />
                     <Route
                         exact
                         path="/adoptionform"
-                        render={() => <AdoptionForm />}
+                        component={AdoptionForm}
                     />
                     <Redirect to="/home" />
                 </Switch>

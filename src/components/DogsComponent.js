@@ -1,5 +1,13 @@
 import React from "react";
-import { Card, CardImg, CardBody, CardTitle, CardText } from "reactstrap";
+import {
+    Card,
+    CardImg,
+    CardBody,
+    CardTitle,
+    CardText,
+    Button,
+} from "reactstrap";
+import { Link } from "react-router-dom";
 
 function RenderDogAdoptCard({ dog }) {
     return (
@@ -9,6 +17,9 @@ function RenderDogAdoptCard({ dog }) {
                 <CardTitle tag="h5">Name: {dog.name}</CardTitle>
                 <CardTitle tag="h5">Breed: {dog.breed}</CardTitle>
                 <CardText>{dog.info}</CardText>
+                <Link to="/adoptionform">
+                    <Button color="primary">Adopt</Button>
+                </Link>
             </CardBody>
         </Card>
     );

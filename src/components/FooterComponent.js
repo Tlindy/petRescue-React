@@ -91,12 +91,6 @@ function Footer() {
                             Testimonials
                         </Link>
                         <Link
-                            to="/resources"
-                            className="border-left border-dark px-1"
-                        >
-                            Resources
-                        </Link>
-                        <Link
                             to="/about"
                             className="border-left border-dark px-1"
                         >
