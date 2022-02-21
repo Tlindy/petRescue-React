@@ -9,7 +9,7 @@ import {
 } from "reactstrap";
 import { Link } from "react-router-dom";
 
-function RenderDogAdoptCard({ dog }) {
+export function RenderDogAdoptCard({ dog }) {
     return (
         <Card>
             <CardImg width="100%" src={dog.image} alt={dog.alt} top />

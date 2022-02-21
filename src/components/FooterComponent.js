@@ -73,7 +73,7 @@ function Footer() {
                             Home
                         </Link>
                         <Link
-                            to="/adopt"
+                            to="/featured"
                             className="border-left border-dark px-1"
                         >
                             Adopt

@@ -13,7 +13,7 @@ function Home(props) {
                 <div className="col">
                     <CardDeck className="mt-5 mb-5">
                         <Card outline color="secondary">
-                            <Link to="/adopt">
+                            <Link to="/featured">
                                 <CardImg
                                     src="/assets/images/adopt.jpg"
                                     alt="Person holding a dog and a cat"

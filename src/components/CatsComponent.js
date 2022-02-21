@@ -9,7 +9,7 @@ import {
 } from "reactstrap";
 import { Link } from "react-router-dom";
 
-function RenderCatAdoptCard({ cat }) {
+export function RenderCatAdoptCard({ cat }) {
     return (
         <Card>
             <CardImg width="100%" src={cat.image} alt={cat.alt} top />

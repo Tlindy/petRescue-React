@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Header from "./HeaderComponent";
 import Footer from "./FooterComponent";
 import Home from "./HomeComponent";
+import Featured from "./FeaturedComponent";
 import Dogs from "./DogsComponent";
 import Cats from "./CatsComponent";
 import GetInvolved from "./GetInvolvedComponent";
@@ -33,6 +34,16 @@ class Main extends Component {
                 <Header />
                 <Switch>
                     <Route path="/home" component={HomePage} />
+                    <Route
+                        exact
+                        path="/featured"
+                        render={() => (
+                            <Featured
+                                dogs={this.state.dogs}
+                                cats={this.state.cats}
+                            />
+                        )}
+                    />
                     <Route
                         exact
                         path="/dogs"

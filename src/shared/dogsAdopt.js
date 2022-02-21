@@ -6,6 +6,7 @@ export const DOGS = [
         image: "/assets/images/dogToAdopt1.jpg",
         alt: "Dog that can be adopted",
         info: "Here is some information about the dog. This dog is a great dog and is looking for a loving family.",
+        featured: true,
     },
     {
         id: 1,
@@ -14,6 +15,7 @@ export const DOGS = [
         image: "/assets/images/dogToAdopt2.jpg",
         alt: "Dog that can be adopted",
         info: "Here is some information about the dog. This dog is a great dog and is looking for a loving family.",
+        featured: false,
     },
     {
         id: 2,
@@ -22,6 +24,7 @@ export const DOGS = [
         image: "/assets/images/dogToAdopt3.jpg",
         alt: "Dog that can be adopted",
         info: "Here is some information about the dog. This dog is a great dog and is looking for a loving family.",
+        featured: true,
     },
     {
         id: 3,
@@ -30,6 +33,7 @@ export const DOGS = [
         image: "/assets/images/dogToAdopt4.jpg",
         alt: "Dog that can be adopted",
         info: "Here is some information about the dog. This dog is a great dog and is looking for a loving family.",
+        featured: false,
     },
     {
         id: 4,
@@ -38,6 +42,7 @@ export const DOGS = [
         image: "/assets/images/dogToAdopt5.jpg",
         alt: "Dog that can be adopted",
         info: "Here is some information about the dog. This dog is a great dog and is looking for a loving family.",
+        featured: true,
     },
     {
         id: 5,
@@ -46,6 +51,7 @@ export const DOGS = [
         image: "/assets/images/dogToAdopt6.jpg",
         alt: "Dog that can be adopted",
         info: "Here is some information about the dog. This dog is a great dog and is looking for a loving family.",
+        featured: false,
     },
     {
         id: 6,
@@ -54,6 +60,7 @@ export const DOGS = [
         image: "/assets/images/dogToAdopt7.jpg",
         alt: "Dog that can be adopted",
         info: "Here is some information about the dog. This dog is a great dog and is looking for a loving family.",
+        featured: false,
     },
     {
         id: 7,
@@ -62,6 +69,7 @@ export const DOGS = [
         image: "/assets/images/dogToAdopt8.jpg",
         alt: "Dog that can be adopted",
         info: "Here is some information about the dog. This dog is a great dog and is looking for a loving family.",
+        featured: true,
     },
     {
         id: 8,
@@ -70,6 +78,7 @@ export const DOGS = [
         image: "/assets/images/dogToAdopt9.jpg",
         alt: "Dog that can be adopted",
         info: "Here is some information about the dog. This dog is a great dog and is looking for a loving family.",
+        featured: false,
     },
     {
         id: 9,
@@ -78,6 +87,7 @@ export const DOGS = [
         image: "/assets/images/dogToAdopt10.jpg",
         alt: "Dog that can be adopted",
         info: "Here is some information about the dog. This dog is a great dog and is looking for a loving family.",
+        featured: false,
     },
     {
         id: 10,
@@ -86,6 +96,7 @@ export const DOGS = [
         image: "/assets/images/dogToAdopt11.jpg",
         alt: "Dog that can be adopted",
         info: "Here is some information about the dog. This dog is a great dog and is looking for a loving family.",
+        featured: false,
     },
     {
         id: 11,
@@ -94,6 +105,7 @@ export const DOGS = [
         image: "/assets/images/dogToAdopt12.jpg",
         alt: "Dog that can be adopted",
         info: "Here is some information about the dog. This dog is a great dog and is looking for a loving family.",
+        featured: false,
     },
     {
         id: 12,
@@ -102,6 +114,7 @@ export const DOGS = [
         image: "/assets/images/dogToAdopt13.jpg",
         alt: "Dog that can be adopted",
         info: "Here is some information about the dog. This dog is a great dog and is looking for a loving family.",
+        featured: false,
     },
     {
         id: 13,
@@ -110,6 +123,7 @@ export const DOGS = [
         image: "/assets/images/dogToAdopt14.jpg",
         alt: "Dog that can be adopted",
         info: "Here is some information about the dog. This dog is a great dog and is looking for a loving family.",
+        featured: false,
     },
     {
         id: 14,
@@ -118,6 +132,7 @@ export const DOGS = [
         image: "/assets/images/dogToAdopt15.jpg",
         alt: "Dog that can be adopted",
         info: "Here is some information about the dog. This dog is a great dog and is looking for a loving family.",
+        featured: false,
     },
     {
         id: 15,
@@ -126,5 +141,6 @@ export const DOGS = [
         image: "/assets/images/dogToAdopt16.jpg",
         alt: "Dog that can be adopted",
         info: "Here is some information about the dog. This dog is a great dog and is looking for a loving family.",
+        featured: false,
     },
 ];

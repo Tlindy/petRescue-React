@@ -73,6 +73,14 @@ class Header extends Component {
                                     <DropdownMenu>
                                         <NavLink
                                             className="nav-link"
+                                            to="/featured"
+                                        >
+                                            <DropdownItem>
+                                                Featured Fur Babies
+                                            </DropdownItem>
+                                        </NavLink>
+                                        <NavLink
+                                            className="nav-link"
                                             to="/dogs"
                                         >
                                             <DropdownItem>Dogs</DropdownItem>
