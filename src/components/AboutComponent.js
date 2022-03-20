@@ -9,7 +9,7 @@ function About(props) {
                 </div>
             </div>
             <div className="row mt-3">
-                <div className="col">
+                <div className="col-md-6">
                     <div className="row">
                         <div className="col">
                             <h2 className="text-primary">Our Mission:</h2>
@@ -64,7 +64,7 @@ function About(props) {
                         </div>
                     </div>
                 </div>
-                <div className="col">
+                <div className="col-md-6">
                     <img
                         src="/assets/images/playing.jpg"
                         alt="Two people playing with a dog"

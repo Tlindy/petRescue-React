@@ -5,7 +5,7 @@ function RenderTestimonial({ testimonial }) {
     if (testimonial.id % 2 === 0) {
         return (
             <React.Fragment>
-                <Media className="col-3">
+                <Media className="col-md-3">
                     <Media
                         object
                         src={testimonial.image}
@@ -14,7 +14,7 @@ function RenderTestimonial({ testimonial }) {
                         width="200"
                     />
                 </Media>
-                <Media body className="align-self-center col-9 ml-2">
+                <Media body className="align-self-center col-md-9 ml-2">
                     <p>{testimonial.info}</p>
                 </Media>
             </React.Fragment>
@@ -22,10 +22,10 @@ function RenderTestimonial({ testimonial }) {
     } else {
         return (
             <React.Fragment>
-                <Media body className="align-self-center col-9 mr-2">
+                <Media body className="align-self-center col-md-9 mr-2">
                     {testimonial.info}
                 </Media>
-                <Media className="col-3">
+                <Media className="col-md-3">
                     <Media
                         object
                         src={testimonial.image}
@@ -40,7 +40,7 @@ function RenderTestimonial({ testimonial }) {
 }
 
 function Testimonials(props) {
-    const happyTails = props.testimonials.map((testimonial) => {
+    const happyTails = props.testimonials.map(testimonial => {
         return (
             <React.Fragment>
                 <div key={testimonial.id} className="row mt-1">
