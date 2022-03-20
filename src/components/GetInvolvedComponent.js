@@ -45,6 +45,14 @@ class GetInvolved extends Component {
                     </div>
                 </div>
                 <div className="row mt-4">
+                    <img 
+                        src="/assets/images/volunteers3.jpg"
+                        alt="Two people petting a dog"
+                        width="500"
+                        className="mx-auto"
+                    />
+                </div>
+                <div className="row mt-4">
                     <div className="col">
                         <h3>What should you know before volunteering?</h3>
                         <p>
@@ -89,6 +97,11 @@ class GetInvolved extends Component {
                             If you would like to be contacted about volunteering
                             please fill out the form below:
                         </h3>
+                    </div>
+                </div>
+                <div className="row mt-3">
+                    <div className="col text-danger">
+                        <p>*= required field</p>
                     </div>
                 </div>
                 <div className="row">

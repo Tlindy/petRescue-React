@@ -45,7 +45,7 @@ function AdoptionForm() {
                 </div>
             </div>
             <div className="row mt-3">
-                <div className="col">
+                <div className="col text-danger">
                     <p>*= required field</p>
                 </div>
             </div>
