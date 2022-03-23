@@ -9,21 +9,17 @@ import GetInvolved from "./GetInvolvedComponent";
 import Testimonials from "./TestimonialsComponent";
 import About from "./AboutComponent";
 import AdoptionForm from "./AdoptionFormComponent";
-import { Switch, Route, Redirect } from "react-router-dom";
-import { DOGS } from "../shared/dogsAdopt";
-import { CATS } from "../shared/catsAdopt";
-import { TESTIMONIALS } from "../shared/testimonials";
+import { Switch, Route, Redirect, withRouter } from "react-router-dom";
+import { connect } from "react-redux";
 
+const mapStateToProps = state => {
+    return {
+        dogs: state.dogs,
+        cats: state.cats,
+        testimonials: state.testimonials,
+    };
+};
 class Main extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            dogs: DOGS,
-            cats: CATS,
-            testimonials: TESTIMONIALS,
-        };
-    }
-
     render() {
         const HomePage = () => {
             return <Home />;
@@ -39,20 +35,20 @@ class Main extends Component {
                         path="/featured"
                         render={() => (
                             <Featured
-                                dogs={this.state.dogs}
-                                cats={this.state.cats}
+                                dogs={this.props.dogs}
+                                cats={this.props.cats}
                             />
                         )}
                     />
                     <Route
                         exact
                         path="/dogs"
-                        render={() => <Dogs dogs={this.state.dogs} />}
+                        render={() => <Dogs dogs={this.props.dogs} />}
                     />
                     <Route
                         exact
                         path="/cats"
-                        render={() => <Cats cats={this.state.cats} />}
+                        render={() => <Cats cats={this.props.cats} />}
                     />
                     <Route exact path="/getinvolved" component={GetInvolved} />
                     <Route
@@ -60,7 +56,7 @@ class Main extends Component {
                         path="/testimonials"
                         render={() => (
                             <Testimonials
-                                testimonials={this.state.testimonials}
+                                testimonials={this.props.testimonials}
                             />
                         )}
                     />
@@ -78,4 +74,4 @@ class Main extends Component {
     }
 }
 
-export default Main;
+export default withRouter(connect(mapStateToProps)(Main));
