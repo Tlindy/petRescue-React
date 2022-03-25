@@ -1,5 +1,13 @@
 import React from "react";
-import { Media, Modal, ModalHeader, ModalBody, Button } from "reactstrap";
+import {
+    Media,
+    Modal,
+    ModalHeader,
+    ModalBody,
+    Button,
+    Label,
+} from "reactstrap";
+import { Control, LocalForm } from "react-redux-form";
 
 class TestimonialForm extends React.Component {
     state = {
@@ -12,6 +20,14 @@ class TestimonialForm extends React.Component {
         });
     };
 
+    handleSubmit = values => {
+        this.toggleModal();
+        console.log(values.image);
+        console.log("Current state is: " + JSON.stringify(values));
+        alert("Current state is: " + JSON.stringify(values));
+        this.props.addTestimonial(values.image, values.info);
+    };
+
     render() {
         return (
             <React.Fragment>
@@ -21,11 +37,39 @@ class TestimonialForm extends React.Component {
                     </Button>
                 </div>
                 <Modal isOpen={this.state.isModalOpen}>
-                    <ModalHeader toggle={this.toggleModal}>
+                    <ModalHeader id="modalHeader" toggle={this.toggleModal}>
                         Tell us your happy tail!
                     </ModalHeader>
-                    <ModalBody>
-                        <p>The form will go here.</p>
+                    <ModalBody id="modalBody">
+                        <LocalForm
+                            onSubmit={values => this.handleSubmit(values)}
+                        >
+                            <div className="form-group">
+                                <Label htmlFor="info">
+                                    What is your happy tail?:
+                                </Label>
+                                <Control.textarea
+                                    model=".info"
+                                    name="info"
+                                    id="info"
+                                    rows="10"
+                                    className="form-control"
+                                />
+                            </div>
+                            <div className="form-group">
+                                <Label>Share a photo:</Label>
+                                <Control.file
+                                    model=".image"
+                                    name="image"
+                                    className="form-control"
+                                />
+                            </div>
+                            <div className="form-group">
+                                <Button type="submit" color="primary">
+                                    Submit
+                                </Button>
+                            </div>
+                        </LocalForm>
                     </ModalBody>
                 </Modal>
             </React.Fragment>

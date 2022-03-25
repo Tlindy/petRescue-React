@@ -6,6 +6,7 @@ export const Testimonials = (state = TESTIMONIALS, action) => {
         case ActionTypes.ADD_TESTIMONIAL:
             const testimonial = action.payload;
             testimonial.id = state.length;
+            testimonial.alt = "A fur baby and their family";
             return state.concat(testimonial);
         default:
             return state;

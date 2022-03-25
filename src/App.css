@@ -45,3 +45,13 @@ hr {
   height: 1px;
   background-color: white;
 }
+
+#modalHeader {
+  background-color: lightpink;
+  color: white;
+}
+
+#modalBody {
+  background-color: lightskyblue;
+  color: white;
+}
