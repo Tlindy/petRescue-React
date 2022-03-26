@@ -8,6 +8,7 @@ import {
     Button,
 } from "reactstrap";
 import { Link } from "react-router-dom";
+import { Loading } from "./LoadingComponent";
 
 export function RenderDogAdoptCard({ dog }) {
     return (
@@ -26,7 +27,7 @@ export function RenderDogAdoptCard({ dog }) {
 }
 
 function Dogs(props) {
-    const dogsToAdopt = props.dogs.map((dog) => {
+    const dogsToAdopt = props.dogs.map(dog => {
         return (
             <div key={dog.id} className="col my-3">
                 <RenderDogAdoptCard dog={dog} />
@@ -34,16 +35,41 @@ function Dogs(props) {
         );
     });
 
-    return (
-        <div className="container">
-            <div className="row">
-                <div className="col text-center my-4">
-                    <h1>Dogs Available For Adoption</h1>
+    if (props.dogsLoading) {
+        return (
+            <div className="container">
+                <div className="row">
+                    <Loading />
                 </div>
             </div>
-            <div className="row row-cols-1 row-cols-md-4">{dogsToAdopt}</div>
-        </div>
-    );
+        );
+    }
+    if (props.dogsErrMess) {
+        return (
+            <div className="container">
+                <div className="row">
+                    <div className="col">
+                        <h4>{props.dogsErrMess}</h4>
+                    </div>
+                </div>
+            </div>
+        );
+    }
+    if (props.dogs) {
+        return (
+            <div className="container">
+                <div className="row">
+                    <div className="col text-center my-4">
+                        <h1>Dogs Available For Adoption</h1>
+                    </div>
+                </div>
+                <div className="row row-cols-1 row-cols-md-4">
+                    {dogsToAdopt}
+                </div>
+            </div>
+        );
+    }
+    return <div />;
 }
 
 export default Dogs;

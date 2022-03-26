@@ -3,7 +3,7 @@ import CarouselComponent from "./CarouselComponent";
 import { Card, CardDeck, CardImg, CardText, CardHeader } from "reactstrap";
 import { Link } from "react-router-dom";
 
-function Home(props) {
+function Home() {
     return (
         <div className="container">
             <div className="row">

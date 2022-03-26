@@ -12,7 +12,7 @@ import AdoptionForm from "./AdoptionFormComponent";
 import { Switch, Route, Redirect, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { actions } from "react-redux-form";
-import { addTestimonial } from "../redux/ActionCreators";
+import { addTestimonial, fetchDogs } from "../redux/ActionCreators";
 
 const mapStateToProps = state => {
     return {
@@ -24,11 +24,16 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = {
     addTestimonial: (image, alt, info) => addTestimonial(image, alt, info),
+    fetchDogs: () => fetchDogs(),
     resetAdoptionForm: () => actions.reset("adoptionForm"),
     resetVolunteerForm: () => actions.reset("volunteerForm"),
 };
 
 class Main extends Component {
+    componentDidMount() {
+        this.props.fetchDogs();
+    }
+
     render() {
         const HomePage = () => {
             return <Home />;
@@ -44,15 +49,23 @@ class Main extends Component {
                         path="/featured"
                         render={() => (
                             <Featured
-                                dogs={this.props.dogs}
+                                dogs={this.props.dogs.dogs}
                                 cats={this.props.cats}
+                                dogsLoading={this.props.dogs.isLoading}
+                                dogsErrMess={this.props.dogs.errMess}
                             />
                         )}
                     />
                     <Route
                         exact
                         path="/dogs"
-                        render={() => <Dogs dogs={this.props.dogs} />}
+                        render={() => (
+                            <Dogs
+                                dogs={this.props.dogs.dogs}
+                                dogsLoading={this.props.dogs.isLoading}
+                                dogsErrMess={this.props.dogs.errMess}
+                            />
+                        )}
                     />
                     <Route
                         exact
