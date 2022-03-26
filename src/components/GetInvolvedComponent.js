@@ -1,39 +1,17 @@
 import React, { Component } from "react";
-import { Button, Form, Label, Input } from "reactstrap";
+import { Button, Label } from "reactstrap";
+import { Control, LocalForm, Errors } from "react-redux-form";
+
+const required = val => val && val.length;
+const maxLength = len => val => !val || val.length <= len;
+const minLength = len => val => val && val.length;
+const isNumber = val => !isNaN(+val);
+const validEmail = val => /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(val);
 
 class GetInvolved extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            firstName: "",
-            lastName: "",
-            areaCode: "",
-            phoneNum: "",
-            email: "",
-            address: "",
-            address2: "",
-            city: "",
-            state: "",
-            zipCode: "",
-            infoCorrect: false,
-            agreeContact: false,
-        };
-    }
-
-    handleInputChange = (event) => {
-        const target = event.target;
-        const name = target.name;
-        const value =
-            target.type === "checkbox" ? target.checked : target.value;
-
-        this.setState({
-            [name]: value,
-        });
-    };
-
-    handleSubmit = (event) => {
-        console.log("Current state is: " + JSON.stringify(this.state));
-        event.preventDefault();
+    handleSubmit = values => {
+        console.log("Current state is: " + JSON.stringify(values));
+        alert("Current state is: " + JSON.stringify(values));
     };
 
     render() {
@@ -45,7 +23,7 @@ class GetInvolved extends Component {
                     </div>
                 </div>
                 <div className="row mt-4">
-                    <img 
+                    <img
                         src="/assets/images/volunteers3.jpg"
                         alt="Two people petting a dog"
                         width="500"
@@ -106,7 +84,9 @@ class GetInvolved extends Component {
                 </div>
                 <div className="row">
                     <div className="col">
-                        <Form onSubmit={this.handleSubmit}>
+                        <LocalForm
+                            onSubmit={values => this.handleSubmit(values)}
+                        >
                             <div className="form-row">
                                 <div className="form-group col-md-6">
                                     <Label
@@ -115,15 +95,30 @@ class GetInvolved extends Component {
                                     >
                                         First Name:*
                                     </Label>
-                                    <Input
-                                        type="text"
+                                    <Control.text
+                                        model=".firstName"
                                         className="form-control"
                                         id="firstName"
                                         name="firstName"
                                         placeholder="First Name"
-                                        required
-                                        value={this.state.firstName}
-                                        onChange={this.handleInputChange}
+                                        validators={{
+                                            required,
+                                            minLength: minLength(2),
+                                            maxLength: maxLength(15),
+                                        }}
+                                    />
+                                    <Errors
+                                        className="text-danger"
+                                        model=".firstName"
+                                        show="touched"
+                                        component="div"
+                                        messages={{
+                                            required: "Required",
+                                            minLength:
+                                                "Must be at least 2 characters",
+                                            maxLength:
+                                                "Must be 15 characters or less",
+                                        }}
                                     />
                                 </div>
                                 <div className="form-group col-md-6">
@@ -133,15 +128,30 @@ class GetInvolved extends Component {
                                     >
                                         Last Name:*
                                     </Label>
-                                    <Input
-                                        type="text"
+                                    <Control.text
+                                        model=".lastName"
                                         className="form-control"
                                         id="lastName"
                                         name="lastName"
                                         placeholder="Last Name"
-                                        required
-                                        value={this.state.lastName}
-                                        onChange={this.handleInputChange}
+                                        validators={{
+                                            required,
+                                            minLength: minLength(2),
+                                            maxLength: maxLength(15),
+                                        }}
+                                    />
+                                    <Errors
+                                        className="text-danger"
+                                        model=".lastName"
+                                        show="touched"
+                                        component="div"
+                                        messages={{
+                                            required: "Required",
+                                            minLength:
+                                                "Must be at least 2 characters",
+                                            maxLength:
+                                                "Must be 15 characters or less",
+                                        }}
                                     />
                                 </div>
                             </div>
@@ -153,29 +163,59 @@ class GetInvolved extends Component {
                                     >
                                         Phone Number:*
                                     </Label>
-                                    <Input
-                                        type="tel"
+                                    <Control.text
+                                        model=".areaCode"
                                         className="form-control"
                                         id="areaCode"
                                         name="areaCode"
                                         placeholder="Area code"
-                                        required
-                                        value={this.state.areaCode}
-                                        onChange={this.handleInputChange}
+                                        validators={{
+                                            required,
+                                            minLength: minLength(3),
+                                            maxLength: maxLength(3),
+                                            isNumber,
+                                        }}
+                                    />
+                                    <Errors
+                                        className="text-danger"
+                                        model=".areaCode"
+                                        show="touched"
+                                        component="div"
+                                        messages={{
+                                            required: "Required",
+                                            minLength: "Must be 3 Numbers",
+                                            maxLength: "Must be 3 Numbers",
+                                            isNumber: "Must be a number",
+                                        }}
                                     />
                                 </div>
                                 <div className="form-group col-md-4">
                                     <Label className="font-weight-bold">
                                         Format: ###-####
                                     </Label>
-                                    <Input
-                                        type="tel"
+                                    <Control.text
+                                        model=".phoneNum"
                                         className="form-control"
                                         name="phoneNum"
                                         placeholder="Phone Number"
-                                        required
-                                        value={this.state.phoneNum}
-                                        onChange={this.handleInputChange}
+                                        validators={{
+                                            required,
+                                            minLength: minLength(7),
+                                            maxLength: maxLength(7),
+                                            isNumber,
+                                        }}
+                                    />
+                                    <Errors
+                                        className="text-danger"
+                                        model=".phoneNum"
+                                        show="touched"
+                                        component="div"
+                                        messages={{
+                                            required: "Required",
+                                            minLength: "Must be 7 Numbers",
+                                            maxLength: "Must be 7 Numbers",
+                                            isNumber: "Must be a number",
+                                        }}
                                     />
                                 </div>
                                 <div className="form-group col-md-5">
@@ -185,15 +225,26 @@ class GetInvolved extends Component {
                                     >
                                         Email:*
                                     </Label>
-                                    <Input
-                                        type="email"
+                                    <Control.text
+                                        model=".email"
                                         className="form-control"
                                         id="email"
                                         name="email"
                                         placeholder="Email"
-                                        required
-                                        value={this.state.email}
-                                        onChange={this.handleInputChange}
+                                        validators={{
+                                            required,
+                                            validEmail,
+                                        }}
+                                    />
+                                    <Errors
+                                        className="text-danger"
+                                        model=".email"
+                                        show="touched"
+                                        component="div"
+                                        messages={{
+                                            required: "Required",
+                                            validEmail: "Inavlid email address",
+                                        }}
                                     />
                                 </div>
                             </div>
@@ -205,14 +256,12 @@ class GetInvolved extends Component {
                                     >
                                         Address:
                                     </Label>
-                                    <Input
-                                        type="text"
+                                    <Control
+                                        model=".address"
                                         className="form-control"
                                         id="address"
                                         name="address"
                                         placeholder="1234 Main St."
-                                        value={this.state.address}
-                                        onChange={this.handleInputChange}
                                     />
                                 </div>
                                 <div className="form-group col-md-4">
@@ -222,14 +271,12 @@ class GetInvolved extends Component {
                                     >
                                         Address 2:
                                     </Label>
-                                    <Input
-                                        type="text"
+                                    <Control.text
+                                        model=".address2"
                                         className="form-control"
                                         id="address2"
                                         name="address2"
                                         placeholder="Apt, suite, etc."
-                                        value={this.state.address2}
-                                        onChange={this.handleInputChange}
                                     />
                                 </div>
                             </div>
@@ -241,14 +288,12 @@ class GetInvolved extends Component {
                                     >
                                         City:
                                     </Label>
-                                    <Input
-                                        type="text"
+                                    <Control.text
+                                        model=".city"
                                         className="form-control"
                                         id="city"
                                         name="city"
                                         placeholder="City"
-                                        value={this.state.city}
-                                        onChange={this.handleInputChange}
                                     />
                                 </div>
                                 <div className="form-group col-md-4">
@@ -258,14 +303,12 @@ class GetInvolved extends Component {
                                     >
                                         State:
                                     </Label>
-                                    <Input
-                                        type="text"
+                                    <Control.text
+                                        model=".state"
                                         className="form-control"
                                         id="state"
                                         name="state"
                                         placeholder="State"
-                                        value={this.state.state}
-                                        onChange={this.handleInputChange}
                                     />
                                 </div>
                                 <div className="form-group col-md-2">
@@ -275,14 +318,24 @@ class GetInvolved extends Component {
                                     >
                                         Zip Code:
                                     </Label>
-                                    <Input
-                                        type="text"
+                                    <Control.text
+                                        model=".zipCode"
                                         className="form-control"
                                         id="zipCode"
                                         name="zipCode"
                                         placeholder="Zip Code"
-                                        value={this.state.zipCode}
-                                        onChange={this.handleInputChange}
+                                        validators={{
+                                            isNumber,
+                                        }}
+                                    />
+                                    <Errors
+                                        className="text-danger"
+                                        model=".zipCode"
+                                        show="touched"
+                                        component="div"
+                                        messages={{
+                                            isNumber: "Must be a number",
+                                        }}
                                     />
                                 </div>
                             </div>
@@ -291,12 +344,24 @@ class GetInvolved extends Component {
                                     How old are you?*
                                 </Label>
                                 <div className="form-check">
-                                    <Input
-                                        type="radio"
+                                    <Control.radio
+                                        model=".age"
                                         className="form-check-input"
                                         id="under21"
                                         name="age"
                                         value="under21"
+                                        validators={{
+                                            required,
+                                        }}
+                                    />
+                                    <Errors
+                                        className="text-danger"
+                                        model=".age"
+                                        show="touched"
+                                        component="div"
+                                        messages={{
+                                            required: "Required",
+                                        }}
                                     />
                                     <Label
                                         htmlFor="under21"
@@ -306,12 +371,24 @@ class GetInvolved extends Component {
                                     </Label>
                                 </div>
                                 <div className="form-check">
-                                    <Input
-                                        type="radio"
+                                    <Control.radio
+                                        model=".age"
                                         className="form-check-input"
                                         id="21-24"
                                         name="age"
                                         value="21-24"
+                                        validators={{
+                                            required,
+                                        }}
+                                    />
+                                    <Errors
+                                        className="text-danger"
+                                        model=".age"
+                                        show="touched"
+                                        component="div"
+                                        messages={{
+                                            required: "Required",
+                                        }}
                                     />
                                     <Label
                                         htmlFor="21-24"
@@ -321,12 +398,24 @@ class GetInvolved extends Component {
                                     </Label>
                                 </div>
                                 <div className="form-check">
-                                    <Input
-                                        type="radio"
+                                    <Control.radio
+                                        model=".age"
                                         className="form-check-input"
                                         id="25-30"
                                         name="age"
                                         value="25-30"
+                                        validators={{
+                                            required,
+                                        }}
+                                    />
+                                    <Errors
+                                        className="text-danger"
+                                        model=".age"
+                                        show="touched"
+                                        component="div"
+                                        messages={{
+                                            required: "Required",
+                                        }}
                                     />
                                     <Label
                                         htmlFor="25-30"
@@ -336,12 +425,24 @@ class GetInvolved extends Component {
                                     </Label>
                                 </div>
                                 <div className="form-check">
-                                    <Input
-                                        type="radio"
+                                    <Control.radio
+                                        model=".age"
                                         className="form-check-input"
                                         id="31-40"
                                         name="age"
                                         value="31-40"
+                                        validators={{
+                                            required,
+                                        }}
+                                    />
+                                    <Errors
+                                        className="text-danger"
+                                        model=".age"
+                                        show="touched"
+                                        component="div"
+                                        messages={{
+                                            required: "Required",
+                                        }}
                                     />
                                     <Label
                                         htmlFor="31-40"
@@ -351,12 +452,24 @@ class GetInvolved extends Component {
                                     </Label>
                                 </div>
                                 <div className="form-check">
-                                    <Input
-                                        type="radio"
+                                    <Control.radio
+                                        model=".age"
                                         className="form-check-input"
                                         id="41-55"
                                         name="age"
                                         value="41-55"
+                                        validators={{
+                                            required,
+                                        }}
+                                    />
+                                    <Errors
+                                        className="text-danger"
+                                        model=".age"
+                                        show="touched"
+                                        component="div"
+                                        messages={{
+                                            required: "Required",
+                                        }}
                                     />
                                     <Label
                                         htmlFor="41-55"
@@ -366,12 +479,24 @@ class GetInvolved extends Component {
                                     </Label>
                                 </div>
                                 <div className="form-check">
-                                    <Input
-                                        type="radio"
+                                    <Control.radio
+                                        model=".age"
                                         className="form-check-input"
                                         id="56-65"
                                         name="age"
                                         value="56-65"
+                                        validators={{
+                                            required,
+                                        }}
+                                    />
+                                    <Errors
+                                        className="text-danger"
+                                        model=".age"
+                                        show="touched"
+                                        component="div"
+                                        messages={{
+                                            required: "Required",
+                                        }}
                                     />
                                     <Label
                                         htmlFor="56-65"
@@ -381,12 +506,24 @@ class GetInvolved extends Component {
                                     </Label>
                                 </div>
                                 <div className="form-check">
-                                    <Input
-                                        type="radio"
+                                    <Control.radio
+                                        model=".age"
                                         className="form-check-input"
                                         id="over65"
                                         name="age"
                                         value="over65"
+                                        validators={{
+                                            required,
+                                        }}
+                                    />
+                                    <Errors
+                                        className="text-danger"
+                                        model=".age"
+                                        show="touched"
+                                        component="div"
+                                        messages={{
+                                            required: "Required",
+                                        }}
                                     />
                                     <Label
                                         htmlFor="over65"
@@ -400,14 +537,11 @@ class GetInvolved extends Component {
                                 <div className="form-group col-md-6">
                                     <div className="form-check">
                                         <Label check>
-                                            <Input
-                                                type="checkbox"
-                                                name="infoCorrect"
+                                            <Control.checkbox
+                                                model=".infoCorrect"
+                                                className="form-check-input"
+                                                id="infoCorrect"
                                                 required
-                                                checked={this.state.infoCorrect}
-                                                onChange={
-                                                    this.handleInputChange
-                                                }
                                             />
                                             The above information is correct to
                                             the best of my knowledge
@@ -417,16 +551,11 @@ class GetInvolved extends Component {
                                 <div className="form-group col-md-6">
                                     <div className="form-check">
                                         <Label check>
-                                            <Input
-                                                type="checkbox"
-                                                name="agreeContact"
+                                            <Control.checkbox
+                                                model=".agreeContact"
+                                                className="form-check-input"
+                                                id="agreeContact"
                                                 required
-                                                checked={
-                                                    this.state.agreeContact
-                                                }
-                                                onChange={
-                                                    this.handleInputChange
-                                                }
                                             />
                                             By submitting this form I am
                                             agreeing to be contacted by Find A
@@ -440,7 +569,7 @@ class GetInvolved extends Component {
                                     Submit Form
                                 </Button>
                             </div>
-                        </Form>
+                        </LocalForm>
                     </div>
                 </div>
             </div>
