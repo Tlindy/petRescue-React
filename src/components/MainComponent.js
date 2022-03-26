@@ -11,6 +11,7 @@ import About from "./AboutComponent";
 import AdoptionForm from "./AdoptionFormComponent";
 import { Switch, Route, Redirect, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
+import { actions } from "react-redux-form";
 import { addTestimonial } from "../redux/ActionCreators";
 
 const mapStateToProps = state => {
@@ -23,6 +24,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = {
     addTestimonial: (image, alt, info) => addTestimonial(image, alt, info),
+    resetAdoptionForm: () => actions.reset("adoptionForm"),
+    resetVolunteerForm: () => actions.reset("volunteerForm"),
 };
 
 class Main extends Component {
@@ -56,7 +59,17 @@ class Main extends Component {
                         path="/cats"
                         render={() => <Cats cats={this.props.cats} />}
                     />
-                    <Route exact path="/getinvolved" component={GetInvolved} />
+                    <Route
+                        exact
+                        path="/getinvolved"
+                        render={() => (
+                            <GetInvolved
+                                resetVolunteerForm={
+                                    this.props.resetVolunteerForm
+                                }
+                            />
+                        )}
+                    />
                     <Route
                         exact
                         path="/testimonials"
@@ -71,7 +84,11 @@ class Main extends Component {
                     <Route
                         exact
                         path="/adoptionform"
-                        component={AdoptionForm}
+                        render={() => (
+                            <AdoptionForm
+                                resetAdoptionForm={this.props.resetAdoptionForm}
+                            />
+                        )}
                     />
                     <Redirect to="/home" />
                 </Switch>

@@ -1,10 +1,10 @@
 import React from "react";
 import { Button } from "reactstrap";
-import { Control, LocalForm, Errors } from "react-redux-form";
+import { Control, Form, Errors } from "react-redux-form";
 
 const required = val => val && val.length;
 const maxLength = len => val => !val || val.length <= len;
-const minLength = len => val => val && val.length;
+const minLength = len => val => val && val.length >= len;
 const isNumber = val => !isNaN(+val);
 const validEmail = val => /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(val);
 
@@ -12,6 +12,7 @@ class AdoptionForm extends React.Component {
     handleSubmit = values => {
         console.log("Current state is: " + JSON.stringify(values));
         alert("Current state is: " + JSON.stringify(values));
+        this.props.resetAdoptionForm();
     };
 
     render() {
@@ -68,7 +69,8 @@ class AdoptionForm extends React.Component {
                 </div>
                 <div className="row">
                     <div className="col">
-                        <LocalForm
+                        <Form
+                            model="adoptionForm"
                             onSubmit={values => this.handleSubmit(values)}
                         >
                             <div className="form-row">
@@ -1100,7 +1102,7 @@ class AdoptionForm extends React.Component {
                                         id="experienceLevel"
                                         className="form-control"
                                     >
-                                        <option selected>
+                                        <option defaultValue>
                                             Select Experience Level...
                                         </option>
                                         <option value="firstTimeOwner">
@@ -1179,7 +1181,7 @@ class AdoptionForm extends React.Component {
                                     Submit Form
                                 </Button>
                             </div>
-                        </LocalForm>
+                        </Form>
                     </div>
                 </div>
             </div>
