@@ -1,7 +1,7 @@
 export const CATS = [
     {
         id: 0,
-        name: "Cat1",
+        name: "Buttercup",
         image: "/assets/images/catToAdopt1.jpg",
         alt: "Cat that can be adopted",
         info: "Here is some information about the cat. This cat is a great cat and is looking for a loving family.",
@@ -9,7 +9,7 @@ export const CATS = [
     },
     {
         id: 1,
-        name: "Cat2",
+        name: "Benji",
         image: "/assets/images/catToAdopt2.jpg",
         alt: "Cat that can be adopted",
         info: "Here is some information about the cat. This cat is a great cat and is looking for a loving family.",
@@ -17,7 +17,7 @@ export const CATS = [
     },
     {
         id: 2,
-        name: "Cat3",
+        name: "Stripes",
         image: "/assets/images/catToAdopt3.jpg",
         alt: "Cat that can be adopted",
         info: "Here is some information about the cat. This cat is a great cat and is looking for a loving family.",
@@ -25,7 +25,7 @@ export const CATS = [
     },
     {
         id: 3,
-        name: "Cat4",
+        name: "Peanut",
         image: "/assets/images/catToAdopt4.jpg",
         alt: "Cat that can be adopted",
         info: "Here is some information about the cat. This cat is a great cat and is looking for a loving family.",
@@ -33,7 +33,7 @@ export const CATS = [
     },
     {
         id: 4,
-        name: "Cat5",
+        name: "Angel",
         image: "/assets/images/catToAdopt5.jpg",
         alt: "Cat that can be adopted",
         info: "Here is some information about the cat. This cat is a great cat and is looking for a loving family.",
@@ -41,7 +41,7 @@ export const CATS = [
     },
     {
         id: 5,
-        name: "Cat6",
+        name: "Buddy",
         image: "/assets/images/catToAdopt6.jpg",
         alt: "Cat that can be adopted",
         info: "Here is some information about the cat. This cat is a great cat and is looking for a loving family.",
@@ -49,7 +49,7 @@ export const CATS = [
     },
     {
         id: 6,
-        name: "Cat7",
+        name: "Ralphy",
         image: "/assets/images/catToAdopt7.jpg",
         alt: "Cat that can be adopted",
         info: "Here is some information about the cat. This cat is a great cat and is looking for a loving family.",
@@ -57,7 +57,7 @@ export const CATS = [
     },
     {
         id: 7,
-        name: "Cat8",
+        name: "Tootsie",
         image: "/assets/images/catToAdopt8.jpg",
         alt: "Cat that can be adopted",
         info: "Here is some information about the cat. This cat is a great cat and is looking for a loving family.",
@@ -65,7 +65,7 @@ export const CATS = [
     },
     {
         id: 8,
-        name: "Cat9",
+        name: "Ivy",
         image: "/assets/images/catToAdopt9.jpg",
         alt: "Cat that can be adopted",
         info: "Here is some information about the cat. This cat is a great cat and is looking for a loving family.",
@@ -73,7 +73,7 @@ export const CATS = [
     },
     {
         id: 9,
-        name: "Cat10",
+        name: "Garfield",
         image: "/assets/images/catToAdopt10.jpg",
         alt: "Cat that can be adopted",
         info: "Here is some information about the cat. This cat is a great cat and is looking for a loving family.",
@@ -81,7 +81,7 @@ export const CATS = [
     },
     {
         id: 10,
-        name: "Cat11",
+        name: "Olivia",
         image: "/assets/images/catToAdopt11.jpg",
         alt: "Cat that can be adopted",
         info: "Here is some information about the cat. This cat is a great cat and is looking for a loving family.",
@@ -89,7 +89,7 @@ export const CATS = [
     },
     {
         id: 11,
-        name: "Cat12",
+        name: "Meredith",
         image: "/assets/images/catToAdopt12.jpg",
         alt: "Cat that can be adopted",
         info: "Here is some information about the cat. This cat is a great cat and is looking for a loving family.",

@@ -1,7 +1,7 @@
 export const DOGS = [
     {
         id: 0,
-        name: "Dog1",
+        name: "Rover",
         breed: "Breed1",
         image: "/assets/images/dogToAdopt1.jpg",
         alt: "Dog that can be adopted",
@@ -10,7 +10,7 @@ export const DOGS = [
     },
     {
         id: 1,
-        name: "Dog2",
+        name: "Oscar",
         breed: "Breed2",
         image: "/assets/images/dogToAdopt2.jpg",
         alt: "Dog that can be adopted",
@@ -19,7 +19,7 @@ export const DOGS = [
     },
     {
         id: 2,
-        name: "Dog3",
+        name: "Tank",
         breed: "Breed3",
         image: "/assets/images/dogToAdopt3.jpg",
         alt: "Dog that can be adopted",
@@ -28,7 +28,7 @@ export const DOGS = [
     },
     {
         id: 3,
-        name: "Dog4",
+        name: "Angus",
         breed: "Breed4",
         image: "/assets/images/dogToAdopt4.jpg",
         alt: "Dog that can be adopted",
@@ -37,7 +37,7 @@ export const DOGS = [
     },
     {
         id: 4,
-        name: "Dog5",
+        name: "Princess",
         breed: "Breed5",
         image: "/assets/images/dogToAdopt5.jpg",
         alt: "Dog that can be adopted",
@@ -46,7 +46,7 @@ export const DOGS = [
     },
     {
         id: 5,
-        name: "Dog6",
+        name: "Baby",
         breed: "Breed6",
         image: "/assets/images/dogToAdopt6.jpg",
         alt: "Dog that can be adopted",
@@ -55,7 +55,7 @@ export const DOGS = [
     },
     {
         id: 6,
-        name: "Dog7",
+        name: "Frank",
         breed: "Breed7",
         image: "/assets/images/dogToAdopt7.jpg",
         alt: "Dog that can be adopted",
@@ -64,7 +64,7 @@ export const DOGS = [
     },
     {
         id: 7,
-        name: "Dog8",
+        name: "Goldie",
         breed: "Breed8",
         image: "/assets/images/dogToAdopt8.jpg",
         alt: "Dog that can be adopted",
@@ -73,7 +73,7 @@ export const DOGS = [
     },
     {
         id: 8,
-        name: "Dog9",
+        name: "Blake",
         breed: "Breed9",
         image: "/assets/images/dogToAdopt9.jpg",
         alt: "Dog that can be adopted",
@@ -82,7 +82,7 @@ export const DOGS = [
     },
     {
         id: 9,
-        name: "Dog10",
+        name: "Rayne",
         breed: "Breed10",
         image: "/assets/images/dogToAdopt10.jpg",
         alt: "Dog that can be adopted",
@@ -91,7 +91,7 @@ export const DOGS = [
     },
     {
         id: 10,
-        name: "Dog11",
+        name: "Arthur",
         breed: "Breed11",
         image: "/assets/images/dogToAdopt11.jpg",
         alt: "Dog that can be adopted",
@@ -100,7 +100,7 @@ export const DOGS = [
     },
     {
         id: 11,
-        name: "Dog12",
+        name: "Annabelle",
         breed: "Breed12",
         image: "/assets/images/dogToAdopt12.jpg",
         alt: "Dog that can be adopted",
@@ -109,7 +109,7 @@ export const DOGS = [
     },
     {
         id: 12,
-        name: "Dog13",
+        name: "Buttons",
         breed: "Breed13",
         image: "/assets/images/dogToAdopt13.jpg",
         alt: "Dog that can be adopted",
@@ -118,7 +118,7 @@ export const DOGS = [
     },
     {
         id: 13,
-        name: "Dog14",
+        name: "Daisy",
         breed: "Breed14",
         image: "/assets/images/dogToAdopt14.jpg",
         alt: "Dog that can be adopted",
@@ -127,7 +127,7 @@ export const DOGS = [
     },
     {
         id: 14,
-        name: "Dog15",
+        name: "Henry",
         breed: "Breed15",
         image: "/assets/images/dogToAdopt15.jpg",
         alt: "Dog that can be adopted",
@@ -136,7 +136,7 @@ export const DOGS = [
     },
     {
         id: 15,
-        name: "Dog16",
+        name: "Aspen",
         breed: "Breed16",
         image: "/assets/images/dogToAdopt16.jpg",
         alt: "Dog that can be adopted",
