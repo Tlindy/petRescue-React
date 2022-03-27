@@ -12,7 +12,12 @@ import AdoptionForm from "./AdoptionFormComponent";
 import { Switch, Route, Redirect, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { actions } from "react-redux-form";
-import { addTestimonial, fetchDogs } from "../redux/ActionCreators";
+import {
+    addTestimonial,
+    fetchDogs,
+    fetchCats,
+    fetchTestimonials,
+} from "../redux/ActionCreators";
 
 const mapStateToProps = state => {
     return {
@@ -25,6 +30,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = {
     addTestimonial: (image, alt, info) => addTestimonial(image, alt, info),
     fetchDogs: () => fetchDogs(),
+    fetchCats: () => fetchCats(),
+    fetchTestimonials: () => fetchTestimonials(),
     resetAdoptionForm: () => actions.reset("adoptionForm"),
     resetVolunteerForm: () => actions.reset("volunteerForm"),
 };
@@ -32,6 +39,8 @@ const mapDispatchToProps = {
 class Main extends Component {
     componentDidMount() {
         this.props.fetchDogs();
+        this.props.fetchCats();
+        this.props.fetchTestimonials();
     }
 
     render() {
@@ -50,9 +59,11 @@ class Main extends Component {
                         render={() => (
                             <Featured
                                 dogs={this.props.dogs.dogs}
-                                cats={this.props.cats}
+                                cats={this.props.cats.cats}
                                 dogsLoading={this.props.dogs.isLoading}
                                 dogsErrMess={this.props.dogs.errMess}
+                                catsLoading={this.props.cats.isLoading}
+                                catsErrMess={this.props.cats.errMess}
                             />
                         )}
                     />
@@ -70,7 +81,13 @@ class Main extends Component {
                     <Route
                         exact
                         path="/cats"
-                        render={() => <Cats cats={this.props.cats} />}
+                        render={() => (
+                            <Cats
+                                cats={this.props.cats.cats}
+                                catsLoading={this.props.cats.isLoading}
+                                catsErrMess={this.props.cats.errMess}
+                            />
+                        )}
                     />
                     <Route
                         exact
@@ -88,7 +105,15 @@ class Main extends Component {
                         path="/testimonials"
                         render={() => (
                             <Testimonials
-                                testimonials={this.props.testimonials}
+                                testimonials={
+                                    this.props.testimonials.testimonials
+                                }
+                                testimonialsLoading={
+                                    this.props.testimonials.isLoading
+                                }
+                                testimonialsErrMess={
+                                    this.props.testimonials.errMess
+                                }
                                 addTestimonial={this.props.addTestimonial}
                             />
                         )}

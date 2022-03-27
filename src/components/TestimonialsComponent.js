@@ -8,6 +8,7 @@ import {
     Label,
 } from "reactstrap";
 import { Control, LocalForm } from "react-redux-form";
+import { Loading } from "./LoadingComponent";
 
 class TestimonialForm extends React.Component {
     state = {
@@ -130,17 +131,42 @@ function Testimonials(props) {
         );
     });
 
-    return (
-        <div className="container">
-            <div className="row mt-2">
-                <div className="col mt-4 mb-5">
-                    <h1 className="text-center mb-5">Our Happy Tails</h1>
-                    <TestimonialForm addTestimonial={props.addTestimonial} />
-                    <Media list>{happyTails}</Media>
+    if (props.testimonialsLoading) {
+        return (
+            <div className="container">
+                <div className="row">
+                    <Loading />
                 </div>
             </div>
-        </div>
-    );
+        );
+    }
+    if (props.testimonialsErrMess) {
+        return (
+            <div className="container">
+                <div className="row">
+                    <div className="col">
+                        <h4>{props.testimonialsErrMess}</h4>
+                    </div>
+                </div>
+            </div>
+        );
+    }
+    if (props.testimonials) {
+        return (
+            <div className="container">
+                <div className="row mt-2">
+                    <div className="col mt-4 mb-5">
+                        <h1 className="text-center mb-5">Our Happy Tails</h1>
+                        <TestimonialForm
+                            addTestimonial={props.addTestimonial}
+                        />
+                        <Media list>{happyTails}</Media>
+                    </div>
+                </div>
+            </div>
+        );
+    }
+    return <div />;
 }
 
 export default Testimonials;

@@ -26,11 +26,14 @@ function Featured(props) {
         }
     });
 
-    if (props.dogsLoading) {
+    if (props.dogsLoading || props.catsLoading) {
         return <Loading />;
     }
     if (props.dogErrMess) {
         return <h4>{props.dogErrMess}</h4>;
+    }
+    if (props.catErrMess) {
+        return <h4>{props.catErrMess}</h4>;
     }
     if (props.dogs && props.cats) {
         return (
